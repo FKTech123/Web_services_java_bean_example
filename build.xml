@@ -1,0 +1,37 @@
+<project name="PersonApp" default="jar" basedir=".">
+    <!-- Set the classpath for compilation -->
+    <path id="classpath">
+        <!-- Add any additional libraries required for compilation here -->
+    </path>
+
+    <!-- Define the directories used in the build -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+
+    <!-- Clean the build directories -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <!-- Create the build directories -->
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <!-- Compile the Java source files -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath"/>
+    </target>
+
+    <!-- Create the jar file -->
+    <target name="jar" depends="compile">
+        <jar destfile="${dist.dir}/PersonApp.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="TestPersonBean"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
