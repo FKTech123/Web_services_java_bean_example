@@ -1,48 +1,40 @@
-# Apache Ant Tutorial Repository
+# Java Bean Persistence Example
 
-Welcome to the Apache Ant Tutorial Repository! This repository is set up as a template to help you learn and practice Apache Ant, a powerful Java-based build tool. When you open this repository in Codespaces, you will find it empty except for this README.md file. Follow the instructions below to set up a basic project, create necessary files and folders, and familiarize yourself with the basics of Apache Ant.
+This repository contains a simple example of Java Bean persistence using serialization. It includes two Java classes, `PersonBean` and `TestPersonBean`, and an Apache Ant build script to compile the code and bundle it into an executable jar file.
 
-## Getting Started
+## Classes
 
-1. **Creating Directories**:
-   - Create a directory named `src` for your Java source files.
-   - Create a directory named `bin` for the compiled class files.
+- `PersonBean`: A simple Java Bean class representing a person with first and last name properties.
+- `TestPersonBean`: A menu-driven program that allows you to interact with a `PersonBean` object, save its state to a file, and load its state from a file.
 
-2. **Creating a Java Class**:
-   - Inside the `src` directory, create a file named `HelloWorld.java`.
-   - Add the following Java code to `HelloWorld.java`:
-     ```java
-     public class HelloWorld {
-         public static void main(String[] args) {
-             System.out.println("Hello, World!");
-         }
-     }
-     ```
+## Setup
 
-3. **Creating the Build File**:
-   - In the root of the repository, create a file named `build.xml`.
-   - Add the following XML code to `build.xml`:
-     ```xml
-     <project name="MyProject" default="compile">
-         <target name="compile">
-             <javac srcdir="src" destdir="bin"/>
-         </target>
-     </project>
-     ```
+This repository is configured to work with GitHub Codespaces, which has `ant` pre-installed. When you open this repository in a Codespace, you'll have everything you need to compile, run, and test the code.
 
-## Building and Running Your Project
+## Instructions
 
-1. **Building Your Project**:
-   - In the integrated terminal, navigate to the root of the repository.
-   - Run the command `ant` to compile your `HelloWorld.java` file. The compiled `HelloWorld.class` file will be placed in the `bin` directory.
+1. Open this repository in a Codespace.
+2. In the terminal, navigate to the repository root directory.
+3. Run the following command to compile the code and create an executable jar file:
 
-2. **Running Your Java Class**:
-   - In the integrated terminal, navigate to the `bin` directory.
-   - Run the command `java HelloWorld` to execute your program. You should see "Hello, World!" printed to the console.
+    ```bash
+    ant
+    ```
 
-## Additional Resources
+4. Run the following command to execute the jar file and interact with the menu-driven program:
 
-- For a more detailed walkthrough on Apache Ant, check out this [Apache Ant Tutorial for Beginners](https://examples.javacodegeeks.com/apache-ant-tutorial-beginners/).
-- For a step-by-step guide provided by the official Apache Ant website, visit [Hello World with Apache Ant](https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html).
+    ```bash
+    java -jar dist/PersonApp.jar
+    ```
 
-Happy Coding!
+5. Follow the on-screen menu to set the first name and last name properties of the `PersonBean` object, display the name, save the object to a file, and load the object from a file.
+
+## Exploring the Code
+
+- The `PersonBean` class is defined in `src/PersonBean.java`.
+- The `TestPersonBean` class is defined in `src/TestPersonBean.java`.
+- The Ant build script is defined in `build.xml`.
+
+Feel free to explore the code, run the program, and experiment with saving and loading `PersonBean` objects to understand Java Bean persistence using serialization.
+
+Enjoy coding!
